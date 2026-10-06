@@ -1,0 +1,255 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/*FONDO DE LA PÁGINA*/
+
+.login-page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    /*
+       Fondo degradado moderno
+    */
+    background:
+        linear-gradient(
+            135deg,
+            #8ed8f8 0%,
+            #8eb8f8 30%,
+            #8f82ee 55%,
+            #e96b91 78%,
+            #f55b5b 100%
+        );
+
+    position: relative;
+}
+
+
+.login-page::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 230px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 45%,
+        55% 100%,
+        0 65%
+    );
+}
+
+
+.login-card {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 430px;
+
+    background: #ffffff;
+
+    padding: 42px 40px;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.20);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+
+.login-header {
+    text-align: left;
+
+    margin-bottom: 32px;
+}
+
+
+.login-header h1 {
+    margin: 0 0 8px 0;
+
+    color: #1f2937;
+
+    font-size: 28px;
+
+    font-weight: 600;
+}
+
+
+.login-header p {
+    margin: 0;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+
+.campo {
+    margin-bottom: 22px;
+}
+
+
+.campo label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #374151;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.campo input {
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 14px;
+
+    border: 1px solid #d9dde5;
+
+    border-radius: 6px;
+
+    background-color: #ffffff;
+
+    color: #1f2937;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/*
+   Cuando haces clic en el input
+*/
+
+.campo input:focus {
+    border-color: #635bff;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 91, 255, 0.12);
+}
+
+
+/*
+   Placeholder
+*/
+
+.campo input::placeholder {
+    color: #9ca3af;
+}
+
+
+/*INPUT CON ERROR*/
+
+.campo input.input-error {
+    border-color: #dc3545;
+
+    box-shadow:
+        0 0 0 2px rgba(220, 53, 69, 0.08);
+}
+
+
+/*MENSAJES DE ERROR*/
+
+.mensaje-error {
+    display: block;
+
+    min-height: 19px;
+
+    margin-top: 6px;
+
+    color: #dc3545;
+
+    font-size: 13px;
+}
+
+
+/*MENSAJE GENERAL*/
+
+.mensaje-general {
+    color: #dc3545;
+
+    font-size: 14px;
+
+    margin-bottom: 12px;
+}
+
+
+/*BOTÓN*/
+
+.boton-ingresar {
+    width: 100%;
+
+    height: 48px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #635bff;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.1s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/*
+   Cuando pasas el mouse
+*/
+
+.boton-ingresar:hover {
+    background: #5148e5;
+
+    box-shadow:
+        0 5px 15px rgba(99, 91, 255, 0.30);
+}
+
+
+/*
+   Cuando presionas
+*/
+
+.boton-ingresar:active {
+    transform: translateY(1px);
+}
