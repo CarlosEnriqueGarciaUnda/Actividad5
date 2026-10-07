@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Escolar | Inicio</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow-sm">
+        <div class="container-fluid">
+            <!-- BOTÓN HAMBURGUESA -->
+            <button class="btn btn-light me-3" id="btnSidebar" type="button" aria-label="Abrir o cerrar menú" aria-controls="sidebar" aria-expanded="true">
+                ☰
+            </button>
+
+            <!-- LOGO + NOMBRE -->
+            <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#">
+                <img src="img/img.jpg" alt="" width="50" height="50">
+                
+                Sistema Escolar
+            </a>
+
+            <!-- USUARIO -->
+            <div class="ms-auto">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle text-white" type="button" id="usuarioDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span id="navbarUsuario">Usuario</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="usuarioDropdown">
+                        <li>
+                            <span class="dropdown-item-text small text-secondary">Sesión iniciada</span>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <button class="dropdown-item text-danger" id="btnCerrarSesion">
+                                Salir del sistema
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h5 class="mb-0">Menú principal</h5>
+        </div>
+
+        <div class="accordion accordion-flush" id="menuAccordion">
+            <div class="accordion-item">
+                <!-- USUARIOS -->
+                <h2 class="accordion-header" id="headingUsuarios">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#menuUsuarios" aria-expanded="false" aria-controls="menuUsuarios">
+                        👤 Usuarios
+                    </button>
+                </h2>
+                <!-- SUBMENÚ -->
+                <div id="menuUsuarios" class="accordion-collapse collapse" aria-labelledby="headingUsuarios">
+                    <div class="accordion-body p-0">
+                        <button class="sidebar-link active" id="btnCaptura" type="button">
+                            📝 Captura
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+   
+    <main id="mainContent" class="main-content">
+        <div class="container-fluid py-4">
+            <!-- TÍTULO -->
+            <section class="mb-4">
+                <h1 class="fw-bold">Panel principal</h1>
+                <p class="text-secondary mb-0">
+                    Selecciona una opción del menú lateral para trabajar con el sistema.
+                </p>
+            </section>
+
+           
+            <section id="seccionCaptura">
+                <div class="row g-4">
+                    <!-- =================================================
+                         FORMULARIO USUARIO
+                         ================================================= -->
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-header bg-white border-0 pt-4 px-4">
+                                <h2 class="h5 fw-bold mb-1">Captura de usuario</h2>
+                                <p class="text-secondary small mb-0">Registra los datos de un usuario.</p>
+                            </div>
+
+                            <div class="card-body p-4">
+                                <!-- ALERTA -->
+                                <div id="usuarioAlert" class="alert d-none" role="alert"></div>
+
+                                <form id="usuarioForm" novalidate>
+                                    <!-- NOMBRE -->
+                                    <div class="mb-3">
+                                        <label for="nombreUsuario" class="form-label">Nombre de usuario</label>
+                                        <input type="text" class="form-control" id="nombreUsuario" placeholder="Nombre completo" minlength="3" required>
+                                        <div class="invalid-feedback">
+                                            El nombre debe tener al menos 3 caracteres.
+                                        </div>
+                                    </div>
+
+                                    <!-- CORREO -->
+                                    <div class="mb-3">
+                                        <label for="correoUsuario" class="form-label">Correo electrónico</label>
+                                        <input type="email" class="form-control" id="correoUsuario" placeholder="usuario@correo.com" required>
+                                        <div class="invalid-feedback">
+                                            Ingresa un correo válido.
+                                        </div>
+                                    </div>
+
+                                    <!-- PASSWORD -->
+                                    <div class="mb-3">
+                                        <label for="passwordUsuario" class="form-label">Contraseña</label>
+                                        <input type="password" class="form-control" id="passwordUsuario" placeholder="Contraseña" required>
+                                        <div class="invalid-feedback">
+                                            La contraseña no cumple los requisitos.
+                                        </div>
+                                    </div>
+
+                                    <!-- BOTONES -->
+                                    <button type="submit" class="btn btn-primary">Guardar usuario</button>
+                                    <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- =================================================
+                         FORMULARIO ALUMNO
+                         ================================================= -->
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-header bg-white border-0 pt-4 px-4">
+                                <h2 class="h5 fw-bold mb-1">Captura de alumno</h2>
+                                <p class="text-secondary small mb-0">Registra el número de control y consulta la edad.</p>
+                            </div>
+
+                            <div class="card-body p-4">
+                                <!-- ALERTA -->
+                                <div id="alumnoAlert" class="alert d-none" role="alert"></div>
+
+                                <form id="alumnoForm" novalidate>
+                                    <!-- NOMBRE -->
+                                    <div class="mb-3">
+                                        <label for="nombreAlumno" class="form-label">Nombre del alumno</label>
+                                        <input type="text" class="form-control" id="nombreAlumno" placeholder="Nombre completo" minlength="3" required>
+                                        <div class="invalid-feedback">
+                                            El nombre del alumno es obligatorio.
+                                        </div>
+                                    </div>
+
+                                    <!-- NUMERO DE CONTROL -->
+                                    <div class="mb-3">
+                                        <label for="numeroControl" class="form-label">Número de control</label>
+                                        <input type="text" class="form-control" id="numeroControl" placeholder="Ej. 123456" maxlength="6" inputmode="numeric" required>
+                                        <div class="invalid-feedback">
+                                            El número de control debe contener exactamente 6 dígitos.
+                                        </div>
+                                    </div>
+
+                                    <!-- FECHA -->
+                                    <div class="mb-3">
+                                        <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+                                        <input type="date" class="form-control" id="fechaNacimiento" required>
+                                        <div class="invalid-feedback">
+                                            Selecciona una fecha de nacimiento.
+                                        </div>
+                                    </div>
+
+                                    <!-- BOTONES -->
+                                    <button type="submit" class="btn btn-success">Registrar alumno</button>
+                                    <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- =====================================================
+         MODAL DE EDAD
+         ===================================================== -->
+    <div class="modal fade" id="edadModal" tabindex="-1" aria-labelledby="edadModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-primary text-white">
+                    <h2 class="modal-title fs-5" id="edadModalLabel">Resultado de edad</h2>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+
+                <div class="modal-body text-center py-4">
+                    <div id="edadIcono" class="fs-1 mb-3">🎓</div>
+                    <h3 id="edadResultado" class="fw-bold h4"></h3>
+                    <p id="edadDetalle" class="text-secondary mb-0"></p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         SCRIPTS
+         ===================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/utileria.js"></script>
+    <script src="js/login.js"></script>
+
+</body>
+</html>
